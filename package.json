@@ -1,6 +1,6 @@
 {
   "name": "valtree",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Valtree is a a function that will itself return the value property of object passed by param.",
   "main": "index.js",
   "engines" : {
