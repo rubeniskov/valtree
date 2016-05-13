@@ -94,5 +94,10 @@ describe('Valtree', function() {
             expect(valtree(json, 'first')).to.be.equal(obj('first'));
             expect(valtree(json, 'foobar')).to.be.equal(obj('foobar'));
         });
+
+        it('should throw an exception', function() {
+            expect(valtree()).to.throw(TypeError);
+            expect(valtree()).to.throw('obj must be an Object instance');
+        });
     });
 });
