@@ -21,7 +21,7 @@ describe('Valtree', function() {
             }
         };
         obj = valtree(json);
-    })
+    });
 
     describe('#instance', function() {
 
@@ -51,7 +51,7 @@ describe('Valtree', function() {
 
         it('should replace value from first.second.third to first.second properties', function() {
 
-            var value = obj('first.second', obj('first.second.third'));
+            var value = obj('first.second', obj('first.second.third'), true);
 
             expect(value).to.be.ok;
             expect(value).to.have.property('third');
@@ -63,8 +63,7 @@ describe('Valtree', function() {
         });
 
         it('should switch value from bar.apple to bar.pear properties', function() {
-
-            var value = obj('bar.apple', obj('bar.pear', obj('bar.apple')));
+            var value = obj('bar.apple', obj('bar.pear', obj('bar.apple'), true), true);
 
             expect(value).to.be.exist;
             expect(value).to.be.equal(json['bar']['pear']);
@@ -77,7 +76,7 @@ describe('Valtree', function() {
 
         it('should switch value from foo.apple to foo.pear properties', function() {
 
-            var value = obj('foo.0', obj('foo.1', obj('foo.0')));
+            var value = obj('foo.0', obj('foo.1', obj('foo.0'), true), true);
 
             expect(value).to.be.exist;
             expect(value).to.be.equal(json['foo']['1']);
