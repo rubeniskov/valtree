@@ -86,6 +86,18 @@ describe('Valtree', function() {
             expect(obj('foo.0')).to.be.equal(json['foo']['0']);
             expect(obj('foo.0')).to.be.not.equal(json['foo']['1']);
         });
+
+        it('should create nested property when undefined parents', function() {
+
+            expect(obj('one.two')).to.not.be.exist;
+
+            var last = obj('one.two.three.for.five', 'six', true);
+            var current = obj('1.2.3.4.5', '6');
+
+            expect(last).to.be.undefined;
+            expect(obj('one.two')).to.be.exist;
+            expect(obj('one.two.three')).to.has.property('for');
+        });
     });
 
     describe('#inline', function() {
@@ -95,8 +107,8 @@ describe('Valtree', function() {
         });
 
         it('should throw an exception', function() {
-            expect(valtree()).to.throw(TypeError);
-            expect(valtree()).to.throw('obj must be an Object instance');
+            expect(valtree.bind()).to.throw(TypeError);
+            expect(valtree.bind()).to.throw('obj must be an Object instance');
         });
     });
 });
