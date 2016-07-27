@@ -3,6 +3,9 @@
   "version": "0.1.4",
   "description": "Valtree is a a function that will itself return the value property of object passed by param.",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
   "engines" : {
     "node" : ">=0.12"
   },
